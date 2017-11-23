@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2017 a las 02:13:54
+-- Tiempo de generación: 24-11-2017 a las 00:30:16
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.9
 
@@ -81,6 +81,17 @@ CREATE TABLE `materias` (
   `descripcion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `respuesta`
+--
+
+CREATE TABLE `respuesta` (
+  `idRespuesta` int(11) NOT NULL,
+  `descripcion` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Índices para tablas volcadas
 --
@@ -116,6 +127,12 @@ ALTER TABLE `materias`
   ADD PRIMARY KEY (`idMateria`);
 
 --
+-- Indices de la tabla `respuesta`
+--
+ALTER TABLE `respuesta`
+  ADD PRIMARY KEY (`idRespuesta`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -136,6 +153,12 @@ ALTER TABLE `catedras`
 --
 ALTER TABLE `materias`
   MODIFY `idMateria` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `respuesta`
+--
+ALTER TABLE `respuesta`
+  MODIFY `idRespuesta` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

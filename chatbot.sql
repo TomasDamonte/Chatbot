@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2017 a las 03:07:32
+-- Tiempo de generación: 25-11-2017 a las 00:51:37
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.9
 
@@ -30,74 +30,545 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `biblioteca` (
   `idLibro` int(11) NOT NULL,
-  `titulo` varchar(100) NOT NULL,
-  `autor` varchar(100) NOT NULL,
-  `editorial` varchar(100) NOT NULL,
-  `genero` varchar(100) NOT NULL,
-  `fechaPublicacion` date NOT NULL
+  `titulo` varchar(255) DEFAULT NULL,
+  `autor` varchar(45) DEFAULT NULL,
+  `editorial` varchar(45) DEFAULT NULL,
+  `categoria` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `biblioteca`
 --
 
-INSERT INTO `biblioteca` (`idLibro`, `titulo`, `autor`, `editorial`, `genero`, `fechaPublicacion`) VALUES
-(1, 'El pistolero', 'Stephen King', 'El Ateneo', 'Fantasía', '1982-11-08');
+INSERT INTO `biblioteca` (`idLibro`, `titulo`, `autor`, `editorial`, `categoria`) VALUES
+(1, 'Algebra II', 'Armando o.Rojo', 'Nueva lente', 'matematica'),
+(2, 'Matemáticas discretas', 'James E. Palmer', 'McGrawHill', 'matematica'),
+(3, 'El calculo con geometría analítica', 'Leithould Louis', 'Arla', 'matematica'),
+(4, 'Investigación de operaciones', 'Hampa A. Taha', 'Person Prentice Hall', 'matematica'),
+(5, 'Algebra I', 'Armando o.Rojo', 'El ateneo', 'matematica'),
+(6, 'Matematicas para la computacion', 'Murillo', 'Alfaomega', 'matematica'),
+(7, 'Matematicas especiales para computacion', 'Valle', 'McGrawHill', 'matematica'),
+(8, 'Matemáticas discreta y Lógica', 'W. K. Grassmann; J. P. Tremblay', 'PrenticeHall', 'matematica'),
+(9, 'Cálculo – Conceptos y contextos', 'James Stewart', 'Thomson', 'matematica'),
+(10, 'Cálculo – Conceptos y contextos', 'James Stewart', 'Thomson', 'matematica'),
+(11, 'Matemáticas Discretas ', 'Johnsonbaugh', 'Iberoamérica', 'matematica'),
+(12, 'Ejercicios teórico-prácticos de AM II - Vectorial. Vol 2', 'Flax', 'Infociencia ', 'matematica'),
+(13, 'Ejercicios teórico-prácticos de AM II - Vectorial. Vol 1', 'Flax', 'Infociencia ', 'matematica'),
+(14, 'Probabilidad y Estadística ', 'Louis Maisel', 'Fondo Educativo Interamericano', 'matematica'),
+(15, 'Estadística para Ingenieros ', 'Bowke, Lieberman', 'Person Prentice Hall', 'matematica'),
+(16, 'Introducción a la Simbología Lógica', 'Bosch', 'EUDEBA', 'matematica'),
+(17, 'Probabilidad y Elementos de Estadística', 'Núñez; Núñez; Argüello', 'Nueva Libreria ', 'matematica'),
+(18, 'Probabilidad. Teoria y 500 Problemas Resueltos', 'Seymour Lipschutz', 'McGrawHill', 'matematica'),
+(19, 'Control Estadístico de Calidad', 'Lourenco Filho', 'Paraninfo', 'matematica'),
+(20, 'Introducción a la Teoría de Probabilidades y sus Aplicaciones', 'William Feller', 'Limusa Wiley', 'matematica'),
+(21, 'Matemática para la Computación', 'Jiménez Murillo', 'Alfaomega', 'matematica'),
+(22, 'Probabilidad y Estadística para Ingenierías y Ciencias', 'Sotomayor / Wisniewski', 'Math Learning', 'matematica'),
+(23, 'Matemáticas Discretas ', 'Johnsonbaugh', 'Iberoamérica', 'matematica'),
+(24, 'ACM Transactions on Programming Languages and Systems 18.4', NULL, 'The first Society in Computing', 'revista acm'),
+(25, 'ACM Transactions on Programming Languages and Systems 18.5', NULL, 'The first Society in Computing', 'revista acm'),
+(26, 'ACM Transactions on Programming Languages and Systems 18.6', NULL, 'The first Society in Computing', 'revista acm'),
+(27, 'ACM Transactions on Programming Languages and Systems 19.2', NULL, 'The first Society in Computing', 'revista acm'),
+(28, 'ACM Transactions on Programming Languages and Systems 19.3', NULL, 'The first Society in Computing', 'revista acm'),
+(29, 'ACM Transactions on Programming Languages and Systems 19.4', NULL, 'The first Society in Computing', 'revista acm'),
+(30, 'ACM Transactions on Programming Languages and Systems 19.5', NULL, 'The first Society in Computing', 'revista acm'),
+(31, 'ACM Transactions on Programming Languages and Systems 19.6', NULL, 'The first Society in Computing', 'revista acm'),
+(32, 'ACM Transactions on Programming Languages and Systems 20.1', NULL, 'The first Society in Computing', 'revista acm'),
+(33, 'ACM Transactions on Programming Languages and Systems 20.2', NULL, 'The first Society in Computing', 'revista acm'),
+(34, 'ACM Transactions on Programming Languages and Systems 43.4', NULL, 'The first Society in Computing', 'revista acm'),
+(35, 'ACM Transactions on Programming Languages and Systems 43.5', NULL, 'The first Society in Computing', 'revista acm'),
+(36, 'ACM Transactions on Programming Languages and Systems 43.6', NULL, 'The first Society in Computing', 'revista acm'),
+(37, 'ACM Transactions on Programming Languages and Systems 44.1', NULL, 'The first Society in Computing', 'revista acm'),
+(38, 'ACM Transactions on Programming Languages and Systems 44.2', NULL, 'The first Society in Computing', 'revista acm'),
+(39, 'ACM Transactions on Programming Languages and Systems 44.3', NULL, 'The first Society in Computing', 'revista acm'),
+(40, 'ACM Transactions on Programming Languages and Systems 44.4', NULL, 'The first Society in Computing', 'revista acm'),
+(41, 'ACM Transactions on Programming Languages and Systems 44.5', NULL, 'The first Society in Computing', 'revista acm'),
+(42, 'ACM Transactions on Programming Languages and Systems 44.6', NULL, 'The first Society in Computing', 'revista acm'),
+(43, 'ACM Transactions on Programming Languages and Systems 45.1', NULL, 'The first Society in Computing', 'revista acm'),
+(44, 'Guia del estudiante', NULL, 'Lazara', 'cultura general'),
+(45, 'Guia de cursos y carreras cortas', 'Lazara', NULL, 'cultura general'),
+(46, 'Catalogo de investigaciones', NULL, 'UB', 'cultura general'),
+(47, 'La biblioteca total ', NULL, 'La nacion', 'cultura general'),
+(48, 'Carros britanicos en el norte de africa', 'Perrett, Sarson, Bryan', 'Osprey Military', 'cultura general'),
+(49, 'Fuerzas de seguridad en inrlanda del norte', NULL, 'Del prado', 'cultura general'),
+(50, 'El hombre en busca de sentido', 'Frankl', 'Herder', 'cultura general'),
+(51, 'Las nuevas realidades', 'Drucker', 'Edhasa', 'cultura general'),
+(52, 'El hombre que descubrio la calidad', 'Gabor', 'Granica', 'cultura general'),
+(53, 'Codigo civile', NULL, 'Simone', 'cultura general'),
+(54, 'Lector en fabula', 'Umberto Eco', 'Lumen', 'cultura general'),
+(55, 'Sartre', 'Gianetti', 'UB', 'cultura general'),
+(56, 'La era del futbol', 'Sebreli', 'Sudamericana', 'cultura general'),
+(57, 'Cherry ', 'Wheeler', 'National Geographic', 'cultura general'),
+(58, 'Un caso de éxito en la era de internet', 'Chang', 'Trend', 'cultura general'),
+(59, 'Mito y realidad', 'Eliade', 'Cl', 'cultura general'),
+(60, 'El fin del hombre', 'Fukuyama', 'Sine qua non', 'cultura general'),
+(61, 'Los militares', 'Scenna', 'Belgrano', 'cultura general'),
+(62, 'Historia de las universidades Argentinas de gestion privada', NULL, 'Dunken', 'cultura general'),
+(63, 'Inteligencia Artificial Unenfoque moderno', 'Stuart Ruseell Peter Norving', 'Pearson', 'cultura general'),
+(64, 'Arrancame La Vida', 'Ángeles Mastretta', 'Espasa Calpe', 'cultura general'),
+(65, 'Doña Rosita la soltera ', 'Federico Garcia Lorca', 'Losada', 'cultura general'),
+(66, 'La Poesia Gauchesca', 'Guillermo Ara', 'Centro Editor de América Latina', 'cultura general'),
+(67, 'Aristóteles: obras selectas.', NULL, 'Distal', 'cultura general'),
+(68, 'Deshoras', 'Julio Cortázar', 'Sudamericana', 'cultura general'),
+(69, 'La Balsa de Piedra', 'José Saramago', 'Alfaguara', 'cultura general'),
+(70, 'Los Funerales de la Mamá Grande', 'Gabriel García Márquez', 'Sudamericana', 'cultura general'),
+(71, 'Georges, la novela contra la esclavitud', 'Alejandro Dumas', 'Plaza Janés', 'cultura general'),
+(72, 'Cuentos de la Alhambra', 'W. Irving', 'EMS', 'cultura general'),
+(73, 'El Perfume', 'Patrick Süskind', 'Narrativa Actual', 'cultura general'),
+(74, 'AIX Administracion I', 'IBM', 'IBM', 'administracion aix'),
+(75, 'AIX Administracion II', 'IBM', 'IBM', 'administracion aix'),
+(76, 'AIX Basico', 'IBM', 'IBM', 'administracion aix'),
+(77, 'Análisis de Sistema y Métodos de Diseño', NULL, NULL, 'base de datos'),
+(78, 'Fundamentos de datos', NULL, NULL, 'base de datos'),
+(79, 'Sistemas de Bases de datos(conceptos fundamentales)', NULL, NULL, 'base de datos'),
+(80, 'Analisis estructurado moderno', NULL, NULL, 'base de datos'),
+(81, 'Sistemas de informacion para la administracion', NULL, NULL, 'base de datos'),
+(82, 'Bases de datos relacionales', NULL, NULL, 'base de datos'),
+(83, 'Administracion de produccio y operaciones', NULL, NULL, 'base de datos'),
+(84, 'Gestion empresarial con Erp', NULL, NULL, 'base de datos'),
+(85, 'Desarrollo y gestion de proyectos Informaticos', NULL, NULL, 'base de datos'),
+(86, 'Fundamentos  de bases de datos', NULL, NULL, 'base de datos'),
+(87, 'managing the structured technique', NULL, NULL, 'base de datos'),
+(88, 'Practice software metrics for project management and process improvement', NULL, NULL, 'base de datos'),
+(89, 'The elements of Friendly Software design', NULL, NULL, 'base de datos'),
+(90, 'Organización de las bases de datos', NULL, NULL, 'base de datos'),
+(91, 'Auditoria y seguridad de los sistemas de computacion', NULL, NULL, 'base de datos'),
+(92, 'Getting started  with recital', NULL, NULL, 'base de datos'),
+(93, 'commands reference manual', NULL, NULL, 'base de datos'),
+(94, 'sdk reference manual', NULL, NULL, 'base de datos'),
+(95, 'library reference manul', NULL, NULL, 'base de datos'),
+(96, 'guide to the recital environment', NULL, NULL, 'base de datos'),
+(97, 'information center', NULL, NULL, 'base de datos'),
+(98, 'Commnds Reference manual Volumen 2', NULL, NULL, 'base de datos'),
+(99, 'SQL reference manual', NULL, NULL, 'base de datos'),
+(100, 'using recital with the assistant', NULL, NULL, 'base de datos'),
+(101, 'Functions reference manual', NULL, NULL, 'base de datos'),
+(102, 'Devoloping Oracle Form application', NULL, NULL, 'base de datos'),
+(103, 'Oracle PL/SQL', NULL, NULL, 'base de datos'),
+(104, 'Modelado de bases de datos', NULL, NULL, 'base de datos'),
+(105, 'Fundamentals of database systems', NULL, NULL, 'base de datos'),
+(106, 'Database processing', NULL, NULL, 'base de datos'),
+(107, 'Concepcion y diseño de bases de datos', NULL, NULL, 'base de datos'),
+(108, 'Biblioteca basica electrónica', 'Mando a distancia Sistemas', 'Nueva lente', 'electronica'),
+(109, 'Introduccion a los sistemas digintales', 'James E. Palmer', 'McGrawHill', 'electronica'),
+(110, 'Los microprocesadores intel avanzados', 'Barry B. Brey', 'MegaByte', 'electronica'),
+(111, 'Enciclopedia de electronica  Moderna(1)', 'J. M Angulo', 'Paraninfo', 'electronica'),
+(112, 'Enciclopedia de electronica  Moderna(2)', 'J. M Angulo', 'Paraninfo', 'electronica'),
+(113, 'Enciclopedia de electronica  Moderna(4)', 'J. M Angulo', 'Paraninfo', 'electronica'),
+(114, 'Electrónica y microcontroladores', 'Victor Rossano', 'Users', 'electronica'),
+(115, 'Ingenieria de software', 'Roger S. Pressman', 'McGrawHill', 'estructura de datos'),
+(116, 'Structured Design', 'Edward Yourdon / Larry L. Constantine', 'Yourdon Constantine', 'estructura de datos'),
+(117, 'Modern structured Analysis', 'Edward Yourdon ', 'Practice-Hall International Editorial', 'estructura de datos'),
+(118, 'Modern structured Analysis', 'Edward Yourdon ', 'Practice-Hall International Editorial', 'estructura de datos'),
+(119, 'IV workshop on requirements Engineering', NULL, 'UTN', 'estructura de datos'),
+(120, 'Ingenieria del software', 'Ian Sommerville', 'Pearson', 'estructura de datos'),
+(121, 'Ingenieria del software. Un enfoque practico', 'Roger S. Pressman', 'McGrawHill', 'estructura de datos'),
+(122, 'The unified Process for practitioners', 'John Hunt', 'Practitioner Series', 'estructura de datos'),
+(123, 'Software Engineering', 'Pressman', 'McGrawHill', 'estructura de datos'),
+(124, 'Analisis y diseño de sistemas de información', 'Whitten/ Bentley/ Barlow', 'Irwim', 'estructura de datos'),
+(125, 'Ingenieria de software', 'Ian Sommerville', 'Addison Wesley', 'estructura de datos'),
+(126, 'Structured Design. Fundamentals of a Discipline of Computer', 'Yourdon/ Constantine', 'Yourdon Press computing Series', 'estructura de datos'),
+(127, 'Systems Analysis and Design an the Transition to Object', 'Sandra Donaldson Dewitz', 'Irwim, McGrawHill', 'estructura de datos'),
+(128, 'Sistemas de Información para la Administración', 'James A. Senn', 'Iberoamérica', 'estructura de datos'),
+(129, 'Reconstruccion del disco rigido', 'Pc practica', 'Cul-Tec S.A', 'fasiculo'),
+(130, 'Procesamiento de imágenes', 'Pc practica', 'Cul-Tec S.A', 'fasiculo'),
+(131, 'Tecnicas de temporalizacion', 'Pc practica', 'Cul-Tec S.A', 'fasiculo'),
+(132, 'UPS-Modems de 56 kbps', 'Imaging', 'Lan y Wan', 'fasiculo'),
+(133, 'Celular Pcs ', 'Imaging', 'Lan y Wan', 'fasiculo'),
+(134, 'Aplicaciones de mision critica', 'Imaging', 'Lan y Wan', 'fasiculo'),
+(135, 'Information Technology', NULL, NULL, 'fasiculo'),
+(136, 'Las empresas.com', 'Business Technology', NULL, 'fasiculo'),
+(137, '¿Hasta donde llegara?', NULL, NULL, 'fasiculo'),
+(138, 'Analisis de sistemas y metodos de diseño', 'Whitten, Bentley, Barlow', 'Irwin', 'ingenieria software'),
+(139, 'Structured design', 'Yourdon', 'Yourdon press', 'ingenieria software'),
+(140, 'Modern structured analysis', 'Yourdon', 'Prentice Hall', 'ingenieria software'),
+(141, 'Analisis estructurado moderno', 'Yourdon', 'Prentice Hall', 'ingenieria software'),
+(142, 'IV workshop on requerements engineering', NULL, 'UTN', 'ingenieria software'),
+(143, 'Ingenieria de software', 'Ian Sommerville', 'Pearson', 'ingenieria software'),
+(144, 'Ingenieria de software', 'Pressman', 'Mc Graw Hill', 'ingenieria software'),
+(145, 'The unified process for practitioners', 'Hunt', 'Springer', 'ingenieria software'),
+(146, 'Software Engineering', 'Pressman', 'Mc Graw Hill', 'ingenieria software'),
+(147, 'Analisis y diseño de sistemas', 'Kendall y Kendall', 'Prentice Hall', 'ingenieria software'),
+(148, 'Analisis y diseño de sistemas de informacion', NULL, 'Irwin', 'ingenieria software'),
+(149, 'Ingenieria de software', 'Ian Sommerville', 'Addison Wesley', 'ingenieria software'),
+(150, 'System Analysis and design and the transition to object', 'Sandra Donaldson Dewitz', 'Mc Graw Hill', 'ingenieria software'),
+(151, 'Proyectos Informáticos - Cómo dominar planificaciones ajustadas de sw.', 'Steve Mc Connell', 'Microsoft Press', 'ingenieria software'),
+(152, 'Instant UML', 'Pierre-Alain Muller', 'Wrox', 'ingenieria software'),
+(153, 'Solaris 7 Server', 'Solaris', NULL, 'manual'),
+(154, 'Solaris 2.6 Hardware: 5/98', 'Solaris', NULL, 'manual'),
+(155, 'Solaris 2.6 Hardware: 5/98', 'Solaris', NULL, 'manual'),
+(156, 'Solaris 2.5.1 Server', 'Solaris', NULL, 'manual'),
+(157, 'Veritas volume manager 3.0.3', 'Solaris', NULL, 'manual'),
+(158, 'Upgrading to Windows 2000', 'Microsoft', NULL, 'manual'),
+(159, 'Microsoft Windows 2000 Active Directory Services', 'Microsoft', NULL, 'manual'),
+(160, 'Microsoft Windows 2000 Server', 'Microsoft', NULL, 'manual'),
+(161, 'Microsoft Windows 2000 Professional', 'Microsoft', NULL, 'manual'),
+(162, 'Windows 2000 Beta Training Kit', 'Microsoft', NULL, 'manual'),
+(163, 'Windows 2000 Active Directory Services', 'Microsoft', NULL, 'manual'),
+(164, 'Active Directory for Windows 2000 Technical Reference', 'Microsoft', NULL, 'manual'),
+(165, 'Visual Basic & SQL', 'Microsoft', NULL, 'manual'),
+(166, 'Proxy Server 2.0 Training', 'Microsoft', NULL, 'manual'),
+(167, 'Internet Information Server Resource Kit', 'Microsoft', NULL, 'manual'),
+(168, 'Windows NT 4.0 Security, Audit and control', 'Microsoft', NULL, 'manual'),
+(169, 'Microsoft Windows 2000 Network Infrastructure Administration', 'Microsoft', NULL, 'manual'),
+(170, 'Internet Explorer 5 Resource Kit', 'Microsoft', NULL, 'manual'),
+(171, 'Internet Information Services 5.0 Resource guide', 'Microsoft', NULL, 'manual'),
+(172, 'Exchange Server 5.5 Resource Guide', 'Microsoft', NULL, 'manual'),
+(173, 'Linux, Unix para todos', 'Tower', NULL, 'manual'),
+(174, 'Microsoft Cluster Server Administrator\'s Guide', 'Microsoft', NULL, 'manual'),
+(175, 'Visual Basic 5.0 Language Reference', 'Microsoft', NULL, 'manual'),
+(176, 'Visual Basic 5.0 ActiveX Controls Reference', 'Microsoft', NULL, 'manual'),
+(177, 'Visual Basic 5.0 Programmer\'s Guide', 'Microsoft', NULL, 'manual'),
+(178, 'Microsoft Windows and WOSA', 'Microsoft', NULL, 'manual'),
+(179, 'Visual Basic', 'Adisson Weskey', NULL, 'manual'),
+(180, 'SQL Server 7.0 Resource Guide', 'Microsoft', NULL, 'manual'),
+(181, 'SQL Server Training Volume 1', 'Microsoft', NULL, 'manual'),
+(182, 'SQL Server 7.0 Administration Trainimg', 'Microsoft', NULL, 'manual'),
+(183, 'SQL Server Training Volume 2', 'Microsoft', NULL, 'manual'),
+(184, 'SQL Server 6.5', 'SAMS', NULL, 'manual'),
+(185, 'Networking Essentials', 'Microsoft', NULL, 'manual'),
+(186, 'Windows NT Administration', 'Microsoft', NULL, 'manual'),
+(187, 'Exchange Server Training', 'Microsoft', NULL, 'manual'),
+(188, 'Microsoft Windows NT network administration', 'Microsoft', NULL, 'manual'),
+(189, 'Microsoft Exchange server training', 'Microsoft', NULL, 'manual'),
+(190, 'AIX version 3.2 Messages Guide and Reference', NULL, NULL, 'manual'),
+(191, 'Team Manager 97 Step by Step', 'Microsoft', NULL, 'manual'),
+(192, 'AIX Version3.2 System Management Guide: Communications and networks', NULL, NULL, 'manual'),
+(193, 'AIX Version 3.2 Installation Guide', NULL, NULL, 'manual'),
+(194, 'IBM Netfinity 7000 User\'s Handbook', 'IBM', NULL, 'manual'),
+(195, 'Tareas básicas de operación, administracion y manejo de problemas del sistema', 'IBM', NULL, 'manual'),
+(196, 'ThinkPad 380/380D Guia de Usuario', 'IBM', NULL, 'manual'),
+(197, 'IBM Network Station Manager Installation and use ', 'IBM', NULL, 'manual'),
+(198, 'SCO OpenServer', NULL, NULL, 'manual'),
+(199, 'SCO OpenServer Internet Services', NULL, NULL, 'manual'),
+(200, 'Linux Handbook ', 'IBM', NULL, 'manual'),
+(201, 'Administracion de sistemas Linux', 'Prentice Hall', NULL, 'manual'),
+(202, 'WebSphere Solution Bundles', 'IBM', NULL, 'manual'),
+(203, 'AIX Version 3.2 Problem Solving Guide and reference', 'IBM', NULL, 'manual'),
+(204, 'Power station and POWER server', NULL, NULL, 'manual'),
+(205, 'Introduction to the WINTOWER 486 Personal Computer', 'Leading Edge', NULL, 'manual'),
+(206, 'AIX Version 3.2 Diskless Workstation Management Guide and reference', NULL, NULL, 'manual'),
+(207, 'AIX FORTRAN Compiler/6000 Language reference', NULL, NULL, 'manual'),
+(208, '7012 Power station and Power server Operator Guide', NULL, NULL, 'manual'),
+(209, 'AIX Version 3.2 Getting Started', NULL, NULL, 'manual'),
+(210, 'AIX FORTRAN Compiler/6000 User\'s Guide', NULL, NULL, 'manual'),
+(211, 'AIX/6000 version 3.2 and risc system/6000 documentation overview', NULL, NULL, 'manual'),
+(212, 'The world\'s most comprehensive case tool set', 'KnowledgeWare', NULL, 'manual'),
+(213, 'The world\'s most comprehensive case tool set', 'KnowledgeWare', NULL, 'manual'),
+(214, 'The world\'s most comprehensive case tool set', 'KnowledgeWare', NULL, 'manual'),
+(215, 'The world\'s most comprehensive case tool set', 'KnowledgeWare', NULL, 'manual'),
+(216, 'System IV user\'s reference manual volumen 2', 'Unisys', NULL, 'manual'),
+(217, 'Pc-Interface administrarion reference manual', 'Unisys', NULL, 'manual'),
+(218, 'U series uniys menu system', 'Unisys', NULL, 'manual'),
+(219, 'System V operating system volumen 2 ', 'Unisys', NULL, 'manual'),
+(220, 'System V operating system volumen 2 ', 'Unisys', NULL, 'manual'),
+(221, 'System V operating system volumen 1', 'Unisys', NULL, 'manual'),
+(222, 'System V Programmer\'s guide Volumen 1', 'Unisys', NULL, 'manual'),
+(223, 'System V Programmer\'s guide Volumen 2', 'Unisys', NULL, 'manual'),
+(224, 'Video terminal uvt- 1224', 'Unisys', NULL, 'manual'),
+(225, 'Pc interno', 'Michael Tischer', 'Marcombo', 'mantenimiento y soporte de hardware'),
+(226, 'Pc interno 2.0', 'Michael Tischer', 'Marcombo', 'mantenimiento y soporte de hardware'),
+(227, 'Ampliar y repara su PC', 'Ulrich Schuller', 'Marcombo', 'mantenimiento y soporte de hardware'),
+(228, 'Guia completa de mantenimiento y actualizacion de Pc', 'Marck Minasi', 'Ventura', 'mantenimiento y soporte de hardware'),
+(229, 'Multimedia', 'Harold Frater', 'Data Becker', 'mantenimiento y soporte de hardware'),
+(230, 'Manual de Actualizacion y reparacion de Pcs', 'Scott Mueller', 'Prentice Hall', 'mantenimiento y soporte de hardware'),
+(231, 'Elija y configuracire su Pc-hardware', 'Thomas Jungbluth', 'Data Becker Edition', 'mantenimiento y soporte de hardware'),
+(232, 'Estructura interna de la PC', 'Gaston C. Hillar', 'Hasa', 'mantenimiento y soporte de hardware'),
+(233, 'the software maintenance challenge', 'lowell jay arthur', 'wiley inter-science', 'mantenimiento y soporte de hardware'),
+(234, 'Build your own 80486 pc and save a bundle', 'Aubrey Pilgrim', 'McGrawHill', 'mantenimiento y soporte de hardware'),
+(235, 'PC interno ', NULL, NULL, 'multimedia'),
+(236, 'PC interno 2.0', NULL, NULL, 'multimedia'),
+(237, 'Ampliar y reparar su pc', NULL, NULL, 'multimedia'),
+(238, 'Guia completa de mantenimiento y actualizacion de la pc', NULL, NULL, 'multimedia'),
+(239, 'El gran libro de multimedia', NULL, NULL, 'multimedia'),
+(240, 'Manual de actualización y reparación de Pcs', NULL, NULL, 'multimedia'),
+(241, 'Elija y configure su pc-hardware', NULL, NULL, 'multimedia'),
+(242, 'Estructura interna de la pc', NULL, NULL, 'multimedia'),
+(243, 'Software evolution', NULL, NULL, 'multimedia'),
+(244, 'Thinking C++', 'BRUCE ECKEL', 'PRENTICE HALL', 'programacion'),
+(245, 'Turbo C++', 'USER\'S GUIDE', 'BORLAND', 'programacion'),
+(246, 'Aplique Turbo C++', 'HERBERT SCHILDT', 'MC GRAW HILL', 'programacion'),
+(247, 'El entordo de programacion unix', 'BRIAN W. KERNIGHAN', 'PHH PRENTICE HALL', 'programacion'),
+(248, 'Fundamentos de programacion algoritmos y estructuras de datos', 'LUIS JOYANES AGUILAR', 'MC GRAW HILL', 'programacion'),
+(249, 'Programacion de sistemas embebidos en C', 'Galeano', 'Alfaomega', 'programacion'),
+(250, 'Programación en lenguaje ensamblador', 'WILLIAN H. MURRAY', 'MC GRAW HILL', 'programacion'),
+(251, 'Visual C++ 5', 'ORI GUREWICH\nNATHAN GUREWICH', 'SAMS PUBLISHING', 'programacion'),
+(252, 'Using html 3.2 java 1.1, and cgi', 'JERRY ABLAN\nTOBIN ANTHONY', 'PLATINUM', 'programacion'),
+(253, 'Compiladores (Principios, técnicas y herramienta)', 'ALFRESD V. AHO\nRAVI SETHI', 'ADISON-WESLEY\nIBERIAMERICANA', 'programacion'),
+(254, 'Turbo Pascal 7 (Manual de referencia)', 'STEPHEN K. O\'BRIEN\nSTEVE NAMEROFF', 'MC GRAW HILL', 'programacion'),
+(255, 'Using Delphi 2', 'JONATHAN MATCHO\nBRIAN SALMANOWITZ', 'QUE', 'programacion'),
+(256, 'Estructuras de datos', 'NELL DALLE\nSUSAN C. LILLY', 'MC GRAW HILL', 'programacion'),
+(257, 'Modelado y diseño orientado a objetos', 'JAMES RUMBAUGH\nMICHAEL BLAHA', 'PRENTICE HALL', 'programacion'),
+(258, 'Java 1.1 thrid Edition', 'MICHAEL MORRISON', 'SAMS NET', 'programacion'),
+(259, 'Estructuras de datos en c', 'AARON M. TENENBAUM\nYEDIDYAH LANGSAM\nMOSHE A. ', 'PRENTICE HALL', 'programacion'),
+(260, 'Análisis y diseño orientado a objetos', 'Juan Manuel Cueva Lovelle, Agustin Cernuda de', 'ADDISON- WESLEY\nDIAZ DE SANTOS', 'programacion'),
+(261, 'Programación orientada a objetos', 'TIMOTHY BUDD', 'ADDISON-WESLEY  \nIBERIAMERICANA', 'programacion'),
+(262, 'Using Delphi 2', 'JONATHAN MATCHO\nBRIAN SALMANOWITZ', 'QUE', 'programacion'),
+(263, 'Clipper 5.2 Guia avanzada para el programador', 'Rick Spence', 'Rama', 'programacion'),
+(264, 'El c++ lenguaje de programacion', 'Bjarne Stroustrup', 'ADDISON-WESLEY\nDIAZ DE SANTOS', 'programacion'),
+(265, 'Programacion orientada a objetos', 'Grey Voss', 'MC GRAW HILL', 'programacion'),
+(266, 'Activex Control Programming with Visual basic 5', 'Keith Brophy', 'Sams net', 'programacion'),
+(267, 'Curso de programacion en clipper 5', 'V.Algara', 'ADDISON- WESLEY', 'programacion'),
+(268, 'Operación progrmacion de computadoras', 'M.C. Ginzburg', 'Albarracin', 'programacion'),
+(269, 'Visual Basic ', 'Microsoft', 'Microsft', 'programacion'),
+(270, 'Clasificacion y busqueda', 'Donal E. Knuth', 'Reverte S.A', 'programacion'),
+(271, 'Algoritmos fundamentales', 'Donal E. Knuth', 'Reverte S.A', 'programacion'),
+(272, 'Diseño  y manejo de estructuras de datos en C', 'Jorge A. Villalobos', 'MC GRAW HILL', 'programacion'),
+(273, 'Programacion en linux', 'kurt wall', 'Prenctice Hall', 'programacion'),
+(274, 'Creating effective Documentation for computer programs', 'Kathyn J. King', 'Prentice Hall', 'programacion'),
+(275, 'Lenguaje C Programacion avanzada', 'Herbert Schildt', 'MC GRAW HILL', 'programacion'),
+(276, 'Object Oriented information Systems', 'David A. Taylor', 'Wiley', 'programacion'),
+(277, 'Object Oriented Software Enginnering', 'Ivar Jacobson', 'Addison-Wesley', 'programacion'),
+(278, 'Programacion en lenguaje de c', 'Herbert Shildt', 'MC GRAW HILL', 'programacion'),
+(279, 'Software enginnering a practitioner\'s approach', 'Roger S. Pressman', 'MC GRAW HILL', 'programacion'),
+(280, 'Object Oriented Design With Appilcations', 'Grady Booch', 'Benjamin Cummings', 'programacion'),
+(281, 'Designing Object Oriented Software', 'Rebecca Wirfs-Brock', 'Ptr PH', 'programacion'),
+(282, 'Object oriented software Development', 'Mark Lorenz', 'Prentice hall', 'programacion'),
+(283, 'Turbo C', 'Borland', 'Reference Guide', 'programacion'),
+(284, 'Visual Programmer', 'Symantec c++', 'Symantec', 'programacion'),
+(285, 'Turbo C', 'Borland', 'user\'s guide', 'programacion'),
+(286, 'turbo pascal for windows', 'Borland', 'Programmer\'s guide', 'programacion'),
+(287, 'Microsoft Windows Programmer\'s Reference', 'Symantec c++', 'Symantec', 'programacion'),
+(288, 'Microft win 32 programmer\'s reference Volume 4', 'Symantec c++', 'Symantec', 'programacion'),
+(289, 'user\'s Guide and Reference', 'Symantec c++', 'Symantec', 'programacion'),
+(290, 'Clipper en Redes de area Local', 'Alfonso Fraguas-Francisco Marin', 'rama', 'programacion'),
+(291, 'Manual de referencia c', 'Herbert Schildt', 'MC GRAW HILL', 'programacion'),
+(292, 'Programacion en pascal', 'Grono', 'ADDISON-WESLEY  \nIBERIAMERICANA', 'programacion'),
+(293, 'Clipper', 'Clipper', 'Nantucket', 'programacion'),
+(294, 'Diseño de paginas web con XHTML, JavaScripts y CSS', 'Oros', 'Alfaomega', 'programacion'),
+(295, 'C++ Professional', NULL, 'Symantec', 'programacion'),
+(296, 'El tutorial de Python', NULL, NULL, 'programacion'),
+(297, 'Microsoft XNA game studio 2.0', 'Miles', 'Microsft', 'programacion'),
+(298, 'Agile principles, petterns, and practices in C#', 'R. Martin y M.Martin', 'PRENTICE HALL', 'programacion'),
+(299, 'Microsoft visual basic aplic. Para windows', NULL, 'Rama', 'programacion'),
+(300, 'Programacion en turbo pascal', NULL, 'MC GRAW HILL', 'programacion'),
+(301, 'Introduction to programing in java', NULL, 'holt sotware associates  inc.', 'programacion'),
+(302, 'Introduction to programing in java', NULL, 'Holt sotware associates  inc.', 'programacion'),
+(303, 'La Programación Dinámica ', NULL, NULL, 'programacion'),
+(304, 'El Entorno de Programación UNIX', 'Kernighan y Pike', 'PHH PRENTICE HALL', 'programacion'),
+(305, 'Cómo Programar C#', 'Deitel y Deitel', 'PRENTICE HALL', 'programacion'),
+(306, 'Borland C++ 4/4.5 - Iniciación y Referencia ', 'Luis Joyanes Aguilar', 'Mc Gran Hill ', 'programacion'),
+(307, 'Análisis y diseño de algoritmos - implementaciones en C y Pascal', 'López, Jeder, Vega', 'Alfaomega', 'programacion'),
+(308, 'Teoría de Control para Informáticos ', 'Fusario, Crotti, Bursztyn, Civale', 'Alfaomega', 'programacion'),
+(309, 'Algoritmos a Fondo con implementaciones en C y Java', 'Ing SZNAJDLEDER', 'Alfaomega', 'programacion'),
+(310, 'Análisis y diseño de algoritmos - implementaciones en C y Pascal', 'López, Jeder, Vega', 'Alfaomega', 'programacion'),
+(311, 'Fiber optic cable System installation', 'Eric R. Pesaron', 'Delmar Publishers', 'redes'),
+(312, 'Introduccion a la fibra optica y el laser ', 'Edward L. Salfford', 'Paraninfo', 'redes'),
+(313, 'fiber optics tecnicians manual', 'Jim Hayes', 'Delmar Publishers', 'redes'),
+(314, 'Guia del administrador de redes', 'olaf Kirch', 'Conectiva', 'redes'),
+(315, 'Supporting Microsft windows NT server in the Enteprise', 'Microsoft Press', 'Microsft Press', 'redes'),
+(316, 'Comunicación de datos redes de computadores y sistemas abiertos', 'Fred Halsall', 'Addison- Wesky Iberoaméricana', 'redes'),
+(317, 'Academia de networking de cisco Systems', 'Cisco Systems', 'Cisco Systems', 'redes'),
+(318, 'Internet (manual de referencia) ', 'Harley Hahm', 'McGrawHill', 'redes'),
+(319, 'Redes globales de informacion TCP/IP', 'Douglas E. Comer', 'Prentice Hall', 'redes'),
+(320, 'Introduccion a la teleinformatica', 'Eduardo Alcade', 'McGrawHill', 'redes'),
+(321, 'Teleinformatica aplicada volumen 1', 'Antonio Ricardo Castro Lechtaler', 'McGrawHill', 'redes'),
+(322, 'Redes de ordenadores ', 'Andres. Tanenbaum', 'Prentice Hall', 'redes'),
+(323, 'Microsft inter information server 4.0 training', 'Hands-on', 'Microsft Press', 'redes'),
+(324, 'Supporting Microsoft Systems management server', 'Hands-on', 'Microsft Press', 'redes'),
+(325, 'Cisco CCNA certification guide', 'Cisco Systems', 'Cisco Systems', 'redes'),
+(326, 'Interconnecting cisco network devices', 'Cisco Systems', 'Cisco Systems', 'redes'),
+(327, 'Internet working technologies handbook', 'Cisco Systems', 'Cisco Systems', 'redes'),
+(328, 'Telecomunicaciones para Pc', NULL, 'McGrawHill', 'redes'),
+(329, 'Redes locales', 'Maria ', 'Prensa Tecnica', 'redes'),
+(330, 'Windows NT server 4.0 terminal Server edition', NULL, 'Microsft Press', 'redes'),
+(331, 'Novell Netware 4', 'Tom Sheldon', 'McGrawHill', 'redes'),
+(332, 'Mastering Network security', 'Chris Brenton', 'Sybex', 'redes'),
+(333, 'Redes avanzadas', 'user', 'user', 'redes'),
+(334, 'Understanding Local Area Networks', 'Stan Schatt', 'Sams', 'redes'),
+(335, 'Teleinformatica aplicada tomo 1', 'Antonio Ricardo Castro Lechtaler', 'Lech S.A', 'redes'),
+(336, 'Building internet firewall', 'o\'reilly', 'o\'reilly', 'redes'),
+(337, 'Microsoft windows Guia de redes', 'Microsoft Press', 'McGrawHill', 'redes'),
+(338, 'the power of intranets', 'Microsoft Press', 'Microsft Press', 'redes'),
+(339, 'Microsoft windows Guia de internet', 'o\'reilly', 'o\'reilly', 'redes'),
+(340, 'Step up to networking', 'Microsoft  skills 2000', 'Microsft Press', 'redes'),
+(341, 'the race for bandwidth understanding data transmission', 'Microsoft Press', 'Microsft Press', 'redes'),
+(342, 'Computer Networks ', 'Tannenbaum', 'Prentice Hall', 'redes'),
+(343, 'Optimizing Network traffic ', 'Microsoft Press', 'Microsft Press', 'redes'),
+(344, 'Understanding Intranets', 'Microsoft Press', 'Microsft Press', 'redes'),
+(345, 'Internetworking A guide to Network Communications', 'Mark A Miller', 'M&T Books', 'redes'),
+(346, 'Guia de interoperabilidad', 'Tom Sheldon', 'McGrawHill', 'redes'),
+(347, 'Redes de Ordenadores 2da Edicion', 'Tanenbaum', 'Prentice Hall', 'redes'),
+(348, 'Redes Cisco - Guia de estudio para la certificación ', 'Ernesto Ariganello', 'Alfaomega Ra-Ma', 'redes'),
+(349, 'Novell NetWare para principiantes', 'Dirk Larisch', 'Marcombo', 'redes'),
+(350, 'Microsoft Fundamentos de Redes Plus', 'Microsoft', 'McGrawHill', 'redes'),
+(351, 'Fibra Óptica Hasta El Hogar', 'Schmidberg', 'UP', 'redes'),
+(352, 'IEEE/ACM Networking', NULL, 'acm press', 'revistas varias'),
+(353, 'IEEE Transactions on Computers', NULL, 'IEE computer Society', 'revistas varias'),
+(354, 'Computer', NULL, 'IEE computer Society', 'revistas varias'),
+(355, 'Digital design ', NULL, 'Users', 'revistas varias'),
+(356, 'Oracle Database ', NULL, 'Oracle', 'revistas varias'),
+(357, 'El desafio de la calidad en la tecnologia de la informacion', NULL, 'IRAM', 'revistas varias'),
+(358, 'Proyecto de acceso a los mercados y a la integracion a traves de la normalizacion tecnica ATN/ME-8532-RG', NULL, 'IRAM', 'revistas varias'),
+(359, 'Fundamentos de robotica', 'Antonio Barrientos', 'McGraw Hill', 'robotica'),
+(360, 'WarDriving and Wireless Securitu', 'Jeff Moss', 'Syngress', 'seguridad informatica'),
+(361, 'Seguridad en Microsoft', 'Edd Bott/ Carl Siechert', 'Mc. Graw Hill', 'seguridad informatica'),
+(362, 'Hackers 19 Desafios Practicos', 'Schiffman/O\'Donnell/Pennington/Pollino', 'Mc. Graw Hill', 'seguridad informatica'),
+(363, 'Network Security', 'Kaufman/Perlman/Speciner', 'PH PTR', 'seguridad informatica'),
+(364, 'Seguridad en Windows 2000', ' ', 'Mc. Graw Hill', 'seguridad informatica'),
+(365, 'Windows NT Seguridad auditoria y control', NULL, 'Mc. Graw Hill', 'seguridad informatica'),
+(366, 'Network Essentials', NULL, 'Microsoft Press', 'seguridad informatica'),
+(367, 'El libro oficial de red hat. Firewalls', 'McCarty', 'ANAYA', 'seguridad informatica'),
+(368, 'Firewall ', 'Carballar', 'Alfaomega', 'seguridad informatica'),
+(369, 'Manual practico de seguridad de redes', 'J.L Harrington', 'ANAYA', 'seguridad informatica'),
+(370, 'Seguridad, spam, spyware y virus', 'Andy Walker', 'ANAYA', 'seguridad informatica'),
+(371, 'WI-FOO the secrets of wireless hacking', 'Vladimirov, Gavrilenko, Mikhalovsky', 'Adisson Wesley', 'seguridad informatica'),
+(372, 'Zero - Day Exploit', 'David Litchfield', 'Syngress', 'seguridad informatica'),
+(373, 'Network Security', 'Bragg, Rhodes-Ousley, Strssberg', 'Mc. Graw Hill', 'seguridad informatica'),
+(374, 'Auditoria y Seguridad de los Sistemas de Computacion', 'Jorge R. Nardelli', 'Editorial Cangallo', 'seguridad informatica'),
+(375, 'Seguridad de redes', 'Chris McNab', 'ANAYA', 'seguridad informatica'),
+(376, 'Stealing the network', NULL, 'Syngress', 'seguridad informatica'),
+(377, 'Firewallls, Manual de referencia', 'Strassberg, Gondek, Rollie', 'Mc. Graw Hill', 'seguridad informatica'),
+(378, 'Network Security a beginner\'s guide', 'Maiwald', 'Mc. Graw Hill', 'seguridad informatica'),
+(379, 'Seguridad Informatica lo que hay que conocer', NULL, 'NEXT VISION', 'seguridad informatica'),
+(380, 'Protección del PC y seguridad en Internet', 'Bradley, Carvey', 'ANAYA', 'seguridad informatica'),
+(381, 'Active Defense a comprehensive guide to network security', 'Brenton, Hunt', 'SYBEX', 'seguridad informatica'),
+(382, 'Hackers Secretos y Soluciones para la seguridad de redes 2', 'Scambray, McClure Kurts', 'Mc. Graw Hill', 'seguridad informatica'),
+(383, 'Seguridad para Intranet e Internet', 'Amoroso, Sharp', 'Prentice Hall', 'seguridad informatica'),
+(384, 'LAN TIMES guide to security and data integrity', 'Farley, Stearns, Hsu', 'Mc. Graw Hill', 'seguridad informatica'),
+(385, 'Programming Windows Security', 'Brown', 'Adisson Wesley', 'seguridad informatica'),
+(386, 'Windows 2000 Manual de Seguridad ', 'Sheldon, Cox', 'Mc. Graw Hill', 'seguridad informatica'),
+(387, 'Seguridad en Java', 'Jaworski, Perrone', 'Prentice Hall', 'seguridad informatica'),
+(388, 'Seguridad profesional en windows nt', 'González Cotera', 'Ra-Ma', 'seguridad informatica'),
+(389, 'Writing Secure Code', 'Howard, LeBlanc', 'Microsoft Press', 'seguridad informatica'),
+(390, 'Intranet Security stories from the trenches', 'McCarthy', 'Prentice Hall', 'seguridad informatica'),
+(391, 'LAN TIMES guía de seguridad e integridad de datos', 'Farley, Stearns, Hsu', 'Mc. Graw Hill', 'seguridad informatica'),
+(392, 'The Internet Security Guidebook from Planning to deployment', 'Ellis, Speed', 'Academic Press', 'seguridad informatica'),
+(393, 'White-hat security arsenal Tackling the Threats', 'Rubin', 'Adisson Wesley', 'seguridad informatica'),
+(394, 'A hacker’s guide to protecting your internet site and network', NULL, NULL, 'seguridad informatica'),
+(395, 'Sistemas de Autentificación para Seguridad en Redes', 'Oppliger', 'Ra-Ma', 'seguridad informatica'),
+(396, 'Hacker’s Challenge ', 'Schiffman', 'Mc. Graw Hill', 'seguridad informatica'),
+(397, 'Construya Firewalls para Internet', 'Chapman, Zwicky', 'Mc. Graw Hill', 'seguridad informatica'),
+(398, 'Linux Máxima Seguridad', 'Anónimo ', 'Prentice Hall', 'seguridad informatica'),
+(399, 'Hacker’s en Linux', 'Hatch, Lee, Kurtz', 'Mc. Graw Hill', 'seguridad informatica'),
+(400, 'Firewall Strategies', 'Amoroso, Sharp', 'Ziff-Davis Press', 'seguridad informatica'),
+(401, 'A Prueba de Hackers', 'Klander', 'ANAYA', 'seguridad informatica'),
+(402, 'Hacker’s en Windows 2000', 'Scambray, McClure', 'Mc. Graw Hill', 'seguridad informatica'),
+(403, 'Microsoft Windows NT Technical support', 'Microsoft Press', 'Microsof Press', 'sistemas operativos'),
+(404, 'Unix (sistema v. version 4)', 'Kenneth H. Rosen', 'McGrawHill', 'sistemas operativos'),
+(405, 'Sed y Awk', 'O\' Relly y associates, Inc', 'Repkover', 'sistemas operativos'),
+(406, 'Practica unix', 'O\' Relly y associates, Inc', 'Repkover', 'sistemas operativos'),
+(407, 'security Microsoft Windows NT Kit de recursos', 'Microsoft Press', 'McGrawHill', 'sistemas operativos'),
+(408, 'Sistemas operativos', 'A. Silberschatz', 'Welsey', 'sistemas operativos'),
+(409, 'Guia de integracion y migracion de netware a windows NT', 'Arnold Villeneuve', 'McGrawHill', 'sistemas operativos'),
+(410, 'Microsoft Windows NT Server Guia de recursos', 'Microsoft Press', 'McGrawHill', 'sistemas operativos'),
+(411, 'Administracion unix', 'Jean- luc Montagnier', 'Ediciones Gestion 2000', 'sistemas operativos'),
+(412, 'Expert Guide to windows NT 4 Registry', 'Peter D. Hipson', 'Sybex', 'sistemas operativos'),
+(413, 'Excel windows 5', 'Clara Margant', 'Infor Books', 'sistemas operativos'),
+(414, 'Linux instalation y primeros pasos', NULL, NULL, 'sistemas operativos'),
+(415, 'Sistemas operativos modernos', 'Andrew S. Tanenbaum', 'Prentice Hall', 'sistemas operativos'),
+(416, 'Sistemas operativos(diseño e implemetacion)', 'Andrew S. Tanenbaum', 'Prentice Hall', 'sistemas operativos'),
+(417, 'Organización y arquitectura de computadores', 'William Stallings', 'Prentice Hall', 'sistemas operativos'),
+(418, 'Linux ', 'Kamaran Husain', 'Unleashed', 'sistemas operativos'),
+(419, 'PC Interrupts', 'Ralf Brown Y Jim kyle', 'Addison Wesley', 'sistemas operativos'),
+(420, 'Introduccion a la informatica', 'Marip Daniel Albarracin', 'McGrawHill', 'sistemas operativos'),
+(421, 'System Administrarion Tasks', 'Hewlett Packard', 'Hewlett Packard', 'sistemas operativos'),
+(422, 'Sistemas operativos', ' Milan Milenkovic', NULL, 'sistemas operativos'),
+(423, 'Guia completa de Microsoft  windows 2000 Profesional', 'Peter Narton/John M]ueller', 'Prentice Hall', 'sistemas operativos'),
+(424, 'Linux Maxima Seguridad', 'Anonimo', 'Prentice Hall', 'sistemas operativos'),
+(425, 'Microsoft Windows 2000 Server Administracion y control', 'Kenneth L. Spencer', 'Prentice Hall', 'sistemas operativos'),
+(426, 'Administracion de sistemas linux', 'James dennis', 'Prentice hall', 'sistemas operativos'),
+(427, 'Sistemas de ficheros transaccionales', 'Dlinux', NULL, 'sistemas operativos'),
+(428, 'Construya un servidor de internet con unix', 'Gorg Eckel', 'Prentice hall', 'sistemas operativos'),
+(429, 'Guia del usuario', 'Larry Greenfield', 'Conectiva linux', 'sistemas operativos'),
+(430, 'Guia del instalacion del sistema ', 'Conectiva informatica', 'Conectiva linux', 'sistemas operativos'),
+(431, 'linux in a nutshell', 'Ellen siever', 'o\'reilly', 'sistemas operativos'),
+(432, 'How to install, configure, and start using an sco', 'Sco', 'sco', 'sistemas operativos'),
+(433, 'Windows 2000', 'Morten Architectutre', 'Coriolis', 'sistemas operativos'),
+(434, 'Microsoft Introducing Windows 2000 Professional', 'Jerry Honeycutt', 'Microsof Press', 'sistemas operativos'),
+(435, 'Microsoft Introducing Windows 2000 Professional', 'Anthony Northrup', 'Microsof Press', 'sistemas operativos'),
+(436, 'Windows NT', 'James D. Murray', 'o\'reilly', 'sistemas operativos'),
+(437, 'Red hat Linux System Administration', 'Thomas Schenk', 'SAMS', 'sistemas operativos'),
+(438, 'Arquitectura de Computadoras', 'Behrooz Parhami', 'McGrawHill', 'sistemas operativos'),
+(439, 'Python for Unix and Linux System Administration', NULL, 'o\'reilly', 'sistemas operativos'),
+(440, 'Introduccion al Unix Sistema V', NULL, 'Anaya', 'sistemas operativos'),
+(441, 'Linux para usuarios de Windows', 'Michael Joseph Miller', 'McGrawHill', 'sistemas operativos'),
+(442, 'Sistemas Operativos - Aspectos internos y principios de diseño', 'Stallings', 'Prentice Hall', 'sistemas operativos'),
+(443, 'Linux Desmitificado ', 'Ricart', 'Prentice Hall', 'sistemas operativos'),
+(444, 'Fundamentos de Sistemas Operativos', 'Silberschatz, Calvin, Gagne', 'McGrawHill', 'sistemas operativos'),
+(445, 'Linux - 4ta edición ', 'Tackett Jr. & Burnett', 'Prentice Hall', 'sistemas operativos'),
+(446, 'Organización de Computadores - Quinta Edicion', 'Hamacher, Vranesic, Zaky', 'McGrawHill', 'sistemas operativos'),
+(447, 'Organización de Computadoras - Enfoque Estructurado', 'Tanenabum', 'PHH Prentice Hall', 'sistemas operativos'),
+(448, 'Sistemas Operativos - Aspectos internos y principios de diseño', 'Stallings', 'Prentice Hall', 'sistemas operativos'),
+(449, 'PCI Video adapters', NULL, NULL, 'testing'),
+(450, '100 Mbps Ethernet Adapters', NULL, NULL, 'testing'),
+(451, 'C/S Development tools', NULL, NULL, 'testing'),
+(452, 'Rewriteable optical drives', NULL, NULL, 'testing'),
+(453, 'High speed LAN analyzers', NULL, NULL, 'testing'),
+(454, 'Windows 95 Communications Programs', NULL, NULL, 'testing'),
+(455, 'Internet Servers for database access', NULL, NULL, 'testing'),
+(456, 'High capacity tape libraries', NULL, NULL, 'testing'),
+(457, 'Telephony', NULL, NULL, 'testing'),
+(458, 'Multimedia notebook computers', NULL, NULL, 'testing'),
+(459, 'Voice over frame relay', NULL, NULL, 'testing'),
+(460, 'Groupware Plataforms for NT', NULL, NULL, 'testing'),
+(461, 'Web Authoring Tools', NULL, NULL, 'testing'),
+(462, '10 Mbits/s Ethernet Switches', NULL, NULL, 'testing'),
+(463, 'Branch office routers', NULL, NULL, 'testing'),
+(464, '33kbps Modems', NULL, NULL, 'testing'),
+(465, 'Imap mail servers', NULL, NULL, 'testing'),
+(466, 'Color laser printers', NULL, NULL, 'testing'),
+(467, 'XDSL Modems', NULL, NULL, 'testing'),
+(468, 'SMP Servers', NULL, NULL, 'testing'),
+(469, 'Firewalls', NULL, NULL, 'testing'),
+(470, 'CD ROM Servers', NULL, NULL, 'testing'),
+(471, 'Ip conferencing software', NULL, NULL, 'testing'),
+(472, 'Pentium MMX systems', NULL, NULL, 'testing'),
+(473, 'TCP/IP Software packages', NULL, NULL, 'testing'),
+(474, '56Kbps Modems', NULL, NULL, 'testing'),
+(475, 'Consultas sobre espacios metricos en paralelo', NULL, NULL, 'testing'),
+(476, 'Mapping sobre arquitecturas heterogeneas', NULL, NULL, 'testing'),
+(477, 'Software Testing Techniques', NULL, NULL, 'testing'),
+(478, 'Information Systems', 'Steven Alter', 'The Benjamin/Cummings Publishing Company', 'varios'),
+(479, 'Working Knowledge', 'Thomas H. Davenport/ Laurence Prusak', 'Harvard Business School Press', 'varios'),
+(480, 'Designing the User Interface', 'Ben Shneiderman', 'Addison Wesley', 'varios'),
+(481, 'Corporate Information Systems Management: Text and Cases', 'Lynda M. Applegate/ F. Warren McFarlan/ James', 'Irwin', 'varios'),
+(482, 'The essential Client/Server Survivsl Guide', 'Robert Orfali/Dan Harkey/Jeri Edwards', 'Wiley', 'varios'),
+(483, 'Complete Business Plan', 'Robert Adams', 'Adams Media', 'varios'),
+(484, 'Decision Support in the Data Warehouse', 'Paul Gray/Hugh J. Watson', 'Prentice Hall', 'varios'),
+(485, 'Agentes  Software y Sistemas Multi-Agente', 'Ana Mas', 'Pearson', 'varios'),
+(486, 'Calidad en el desarrollo y mantenimiento de software', 'Mario G. Piattini/ Felix O. Garcia', 'Alfaomega', 'varios'),
+(487, 'Competisoft', 'Hanna Oktaba/Mario Piattini/Francisco J. Pino', 'Ra-Ma', 'varios'),
+(488, 'Calidad de Sistemas Informaticos', 'Mario Piattini/Felix O Garcia/Ismael Caballer', 'Alfaomega', 'varios'),
+(489, 'ITSM Process Assessment Supporting ITIL', NULL, 'VHP', 'varios'),
+(490, 'Teleinformatica Aplicada', 'Lechtaler/Jorge Fusario', 'Mc. Graw Hill', 'varios'),
+(491, 'Scrum Manager', NULL, NULL, 'varios');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `catedras`
+-- Estructura de tabla para la tabla `categorias`
 --
 
-CREATE TABLE `catedras` (
-  `idCatedra` int(11) NOT NULL,
+CREATE TABLE `categorias` (
+  `idCategoria` int(11) NOT NULL,
   `descripcion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `libro_catedras`
+-- Volcado de datos para la tabla `categorias`
 --
 
-CREATE TABLE `libro_catedras` (
-  `idLibro` int(11) NOT NULL,
-  `idCatedra` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `categorias` (`idCategoria`, `descripcion`) VALUES
+(1, 'matematica');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `libro_materias`
+-- Estructura de tabla para la tabla `respuestas`
 --
 
-CREATE TABLE `libro_materias` (
-  `idLibro` int(11) NOT NULL,
-  `idMateria` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `materias`
---
-
-CREATE TABLE `materias` (
-  `idMateria` int(11) NOT NULL,
-  `descripcion` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `respuesta`
---
-
-CREATE TABLE `respuesta` (
+CREATE TABLE `respuestas` (
   `idRespuesta` int(11) NOT NULL,
   `descripcion` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `respuestas`
+--
+
+INSERT INTO `respuestas` (`idRespuesta`, `descripcion`) VALUES
+(1, 'hola'),
+(2, 'chau');
 
 --
 -- Índices para tablas volcadas
@@ -110,33 +581,15 @@ ALTER TABLE `biblioteca`
   ADD PRIMARY KEY (`idLibro`);
 
 --
--- Indices de la tabla `catedras`
+-- Indices de la tabla `categorias`
 --
-ALTER TABLE `catedras`
-  ADD PRIMARY KEY (`idCatedra`);
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`idCategoria`);
 
 --
--- Indices de la tabla `libro_catedras`
+-- Indices de la tabla `respuestas`
 --
-ALTER TABLE `libro_catedras`
-  ADD PRIMARY KEY (`idLibro`,`idCatedra`);
-
---
--- Indices de la tabla `libro_materias`
---
-ALTER TABLE `libro_materias`
-  ADD PRIMARY KEY (`idLibro`,`idMateria`);
-
---
--- Indices de la tabla `materias`
---
-ALTER TABLE `materias`
-  ADD PRIMARY KEY (`idMateria`);
-
---
--- Indices de la tabla `respuesta`
---
-ALTER TABLE `respuesta`
+ALTER TABLE `respuestas`
   ADD PRIMARY KEY (`idRespuesta`);
 
 --
@@ -147,25 +600,19 @@ ALTER TABLE `respuesta`
 -- AUTO_INCREMENT de la tabla `biblioteca`
 --
 ALTER TABLE `biblioteca`
-  MODIFY `idLibro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idLibro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=492;
 
 --
--- AUTO_INCREMENT de la tabla `catedras`
+-- AUTO_INCREMENT de la tabla `categorias`
 --
-ALTER TABLE `catedras`
-  MODIFY `idCatedra` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `categorias`
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `materias`
+-- AUTO_INCREMENT de la tabla `respuestas`
 --
-ALTER TABLE `materias`
-  MODIFY `idMateria` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `respuesta`
---
-ALTER TABLE `respuesta`
-  MODIFY `idRespuesta` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `respuestas`
+  MODIFY `idRespuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

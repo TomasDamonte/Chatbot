@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2017 a las 00:30:16
+-- Tiempo de generación: 24-11-2017 a las 03:07:32
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.9
 
@@ -36,6 +36,13 @@ CREATE TABLE `biblioteca` (
   `genero` varchar(100) NOT NULL,
   `fechaPublicacion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `biblioteca`
+--
+
+INSERT INTO `biblioteca` (`idLibro`, `titulo`, `autor`, `editorial`, `genero`, `fechaPublicacion`) VALUES
+(1, 'El pistolero', 'Stephen King', 'El Ateneo', 'Fantasía', '1982-11-08');
 
 -- --------------------------------------------------------
 
@@ -140,7 +147,7 @@ ALTER TABLE `respuesta`
 -- AUTO_INCREMENT de la tabla `biblioteca`
 --
 ALTER TABLE `biblioteca`
-  MODIFY `idLibro` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idLibro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `catedras`

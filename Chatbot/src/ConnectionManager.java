@@ -83,4 +83,28 @@ public class ConnectionManager {
 		}	
 		return libros;
 	}
+	
+	public static LinkedList<Libro> getLibrosMateria(String str) { 
+		LinkedList<Libro> libros = new LinkedList<>();
+		try {
+			Connection conn = DriverManager.getConnection(url, username, password);
+			Statement stmt = (Statement) conn.createStatement();
+			ResultSet rs = stmt.executeQuery("select b.* from biblioteca b, materias m, libro_materias lm where b.idLibro = lm.idLibro and lm.idMateria = m.idMateria and m.descripcion like '%"+str+"%'");
+			while (rs.next()) {
+				String titulo = rs.getString(2);	
+				String autor = rs.getString(3);
+				String editorial = rs.getString(4);
+				String genero = rs.getString(5);
+				String fechaPublicacion = rs.getString(6);
+				Libro libro = new Libro (titulo,autor,editorial,genero,fechaPublicacion);
+				libros.add(libro);
+			}
+			stmt.close();
+			conn.close();
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		return libros;
+	}
 }

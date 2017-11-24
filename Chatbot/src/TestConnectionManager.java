@@ -35,5 +35,10 @@ class TestConnectionManager {
 	void testGetLibrosMateria() {
 		assertEquals(expected,ConnectionManager.getLibrosMateria("gramac").get(0).toString());		
 	}
+	
+	@Test
+	void testGetLibrosCatedra() {
+		assertEquals(expected,ConnectionManager.getLibrosCatedra("ndol").get(0).toString());		
+	}
 
 }

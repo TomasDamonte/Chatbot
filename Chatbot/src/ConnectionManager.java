@@ -131,4 +131,16 @@ public class ConnectionManager {
 		}
 		return libros;
 	}
+	
+	public static void setRespuesta(String str) {
+		try {
+			Connection conn = DriverManager.getConnection(url, username, password);
+			Statement stmt = (Statement) conn.createStatement();
+			stmt.executeUpdate("insert into respuesta (idRespuesta, descripcion) values (null, '"+str+"')");
+			stmt.close();
+			conn.close();			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}		
+	}
 }

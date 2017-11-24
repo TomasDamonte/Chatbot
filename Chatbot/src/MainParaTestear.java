@@ -6,6 +6,8 @@ public class MainParaTestear {
 		for(Libro libro : ConnectionManager.getLibrosCatedra("ndol")) {
 			System.out.println(libro.toString());
 		}
+		
+		ConnectionManager.setRespuesta("chau");
 	}
 
 }

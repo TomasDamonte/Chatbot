@@ -22,9 +22,8 @@ public class ConnectionManager {
 				String titulo = rs.getString(2);	
 				String autor = rs.getString(3);
 				String editorial = rs.getString(4);
-				String genero = rs.getString(5);
-				String fechaPublicacion = rs.getString(6);
-				Libro libro = new Libro (titulo,autor,editorial,genero,fechaPublicacion);
+				String categoria = rs.getString(5);
+				Libro libro = new Libro (titulo,autor,editorial,categoria);
 				libros.add(libro);
 			}
 			stmt.close();
@@ -46,9 +45,8 @@ public class ConnectionManager {
 				String titulo = rs.getString(2);	
 				String autor = rs.getString(3);
 				String editorial = rs.getString(4);
-				String genero = rs.getString(5);
-				String fechaPublicacion = rs.getString(6);
-				Libro libro = new Libro (titulo,autor,editorial,genero,fechaPublicacion);
+				String categoria = rs.getString(5);
+				Libro libro = new Libro (titulo,autor,editorial,categoria);
 				libros.add(libro);
 			}
 			stmt.close();
@@ -70,9 +68,8 @@ public class ConnectionManager {
 				String titulo = rs.getString(2);	
 				String autor = rs.getString(3);
 				String editorial = rs.getString(4);
-				String genero = rs.getString(5);
-				String fechaPublicacion = rs.getString(6);
-				Libro libro = new Libro (titulo,autor,editorial,genero,fechaPublicacion);
+				String categoria = rs.getString(5);
+				Libro libro = new Libro (titulo,autor,editorial,categoria);
 				libros.add(libro);
 			}
 			stmt.close();
@@ -84,19 +81,18 @@ public class ConnectionManager {
 		return libros;
 	}
 	
-	public static LinkedList<Libro> getLibrosMateria(String str) { 
+	public static LinkedList<Libro> getLibrosEditorial(String str) { 
 		LinkedList<Libro> libros = new LinkedList<>();
 		try {
 			Connection conn = DriverManager.getConnection(url, username, password);
 			Statement stmt = (Statement) conn.createStatement();
-			ResultSet rs = stmt.executeQuery("select b.* from biblioteca b, materias m, libro_materias lm where b.idLibro = lm.idLibro and lm.idMateria = m.idMateria and m.descripcion like '%"+str+"%'");
+			ResultSet rs = stmt.executeQuery("select * from biblioteca where editorial like '%"+str+"%'");
 			while (rs.next()) {
 				String titulo = rs.getString(2);	
 				String autor = rs.getString(3);
 				String editorial = rs.getString(4);
-				String genero = rs.getString(5);
-				String fechaPublicacion = rs.getString(6);
-				Libro libro = new Libro (titulo,autor,editorial,genero,fechaPublicacion);
+				String categoria = rs.getString(5);
+				Libro libro = new Libro (titulo,autor,editorial,categoria);
 				libros.add(libro);
 			}
 			stmt.close();
@@ -108,19 +104,18 @@ public class ConnectionManager {
 		return libros;
 	}
 	
-	public static LinkedList<Libro> getLibrosCatedra(String str) { 
+	public static LinkedList<Libro> getLibrosCategoria(String str) { 
 		LinkedList<Libro> libros = new LinkedList<>();
 		try {
 			Connection conn = DriverManager.getConnection(url, username, password);
 			Statement stmt = (Statement) conn.createStatement();
-			ResultSet rs = stmt.executeQuery("select b.* from biblioteca b, catedras c, libro_catedras lc where b.idLibro = lc.idLibro and lc.idCatedra = c.idCatedra and c.descripcion like '%"+str+"%'");
+			ResultSet rs = stmt.executeQuery("select * from biblioteca where categoria like '%"+str+"%'");
 			while (rs.next()) {
 				String titulo = rs.getString(2);	
 				String autor = rs.getString(3);
 				String editorial = rs.getString(4);
-				String genero = rs.getString(5);
-				String fechaPublicacion = rs.getString(6);
-				Libro libro = new Libro (titulo,autor,editorial,genero,fechaPublicacion);
+				String categoria = rs.getString(5);
+				Libro libro = new Libro (titulo,autor,editorial,categoria);
 				libros.add(libro);
 			}
 			stmt.close();
@@ -128,7 +123,7 @@ public class ConnectionManager {
 			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}	
 		return libros;
 	}
 	
@@ -136,11 +131,30 @@ public class ConnectionManager {
 		try {
 			Connection conn = DriverManager.getConnection(url, username, password);
 			Statement stmt = (Statement) conn.createStatement();
-			stmt.executeUpdate("insert into respuesta (idRespuesta, descripcion) values (null, '"+str+"')");
+			stmt.executeUpdate("insert into respuestas (idRespuesta, descripcion) values (null, '"+str+"')");
 			stmt.close();
 			conn.close();			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}		
 	}
+	
+	public static String getRespuesta(String id) { 
+		String respuesta = "";
+		try {
+			Connection conn = DriverManager.getConnection(url, username, password);
+			Statement stmt = (Statement) conn.createStatement();
+			ResultSet rs = stmt.executeQuery("select descripcion from respuestas where idRespuesta = '"+id+"'");
+			while (rs.next()) {
+				respuesta = rs.getString(1);
+			}
+			stmt.close();
+			conn.close();
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		return respuesta;
+	}
+	
 }

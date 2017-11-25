@@ -8,9 +8,9 @@ import com.mysql.jdbc.Statement;
 
 public class ConnectionManager {
 
-	private static String url = "jdbc:mysql://localhost:3306/chatbot";    
-	private static String username = "root";   
-	private static String password = "";
+	private final static String url = "jdbc:mysql://localhost:3306/chatbot";    
+	private final static String username = "root";   
+	private final static String password = "";
 	
 	public static LinkedList<Libro> getLibrosTodos() { 
 		LinkedList<Libro> libros = new LinkedList<>();

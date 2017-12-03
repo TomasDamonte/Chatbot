@@ -36,13 +36,4 @@ public class InputProvider {
 		returnable = scanner.nextLine();
 		return returnable;
 	}
-	
-	public Boolean controladorInput(Integer input, Integer piso, Integer techo) {
-		if(piso <= input && input <= techo){
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
 }

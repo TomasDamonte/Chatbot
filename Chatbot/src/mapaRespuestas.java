@@ -2,11 +2,11 @@ import java.util.HashMap;
 
 public class mapaRespuestas {
 	
+	private HashMap<Integer, String> mapaRespuestas = new HashMap<Integer, String>();
+	
 	public mapaRespuestas() {
 		this.getMapaRespuestas();
 	}
-	
-	private HashMap<Integer, String> mapaRespuestas = new HashMap<Integer, String>();
 
 	private HashMap<Integer, String> getMapaRespuestas() {
 		return mapaRespuestas;
@@ -27,4 +27,5 @@ public class mapaRespuestas {
 		Integer key = this.getMapaRespuestas().size() + 1;
 		this.getMapaRespuestas().put(key, respuesta);
 	}
+	
 }

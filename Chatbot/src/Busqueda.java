@@ -15,5 +15,11 @@ public class Busqueda {
 		this.busqueda = busqueda;
 	}
 	
-	
+	public Boolean validarBusqueda(String busqueda) {
+		switch(busqueda) {
+			case "libro": return true;
+			case "autor" : return true;
+			default: return false;
+		}
+	}
 }

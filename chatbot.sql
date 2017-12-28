@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2017 a las 00:51:37
+-- Tiempo de generación: 28-12-2017 a las 02:59:06
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.9
 
@@ -33,7 +33,7 @@ CREATE TABLE `biblioteca` (
   `titulo` varchar(255) DEFAULT NULL,
   `autor` varchar(45) DEFAULT NULL,
   `editorial` varchar(45) DEFAULT NULL,
-  `categoria` varchar(100) NOT NULL
+  `categoria` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -536,20 +536,13 @@ INSERT INTO `biblioteca` (`idLibro`, `titulo`, `autor`, `editorial`, `categoria`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
+-- Estructura de tabla para la tabla `consultas`
 --
 
-CREATE TABLE `categorias` (
-  `idCategoria` int(11) NOT NULL,
-  `descripcion` varchar(100) NOT NULL
+CREATE TABLE `consultas` (
+  `idConsulta` int(11) NOT NULL,
+  `consulta` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `categorias`
---
-
-INSERT INTO `categorias` (`idCategoria`, `descripcion`) VALUES
-(1, 'matematica');
 
 -- --------------------------------------------------------
 
@@ -559,16 +552,17 @@ INSERT INTO `categorias` (`idCategoria`, `descripcion`) VALUES
 
 CREATE TABLE `respuestas` (
   `idRespuesta` int(11) NOT NULL,
-  `descripcion` varchar(500) NOT NULL
+  `descripcion` varchar(500) DEFAULT NULL,
+  `%exito` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `respuestas`
 --
 
-INSERT INTO `respuestas` (`idRespuesta`, `descripcion`) VALUES
-(1, 'hola'),
-(2, 'chau');
+INSERT INTO `respuestas` (`idRespuesta`, `descripcion`, `%exito`) VALUES
+(2, 'chau', 0),
+(3, 'hola', 0);
 
 --
 -- Índices para tablas volcadas
@@ -581,10 +575,10 @@ ALTER TABLE `biblioteca`
   ADD PRIMARY KEY (`idLibro`);
 
 --
--- Indices de la tabla `categorias`
+-- Indices de la tabla `consultas`
 --
-ALTER TABLE `categorias`
-  ADD PRIMARY KEY (`idCategoria`);
+ALTER TABLE `consultas`
+  ADD PRIMARY KEY (`idConsulta`);
 
 --
 -- Indices de la tabla `respuestas`
@@ -603,16 +597,16 @@ ALTER TABLE `biblioteca`
   MODIFY `idLibro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=492;
 
 --
--- AUTO_INCREMENT de la tabla `categorias`
+-- AUTO_INCREMENT de la tabla `consultas`
 --
-ALTER TABLE `categorias`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `consultas`
+  MODIFY `idConsulta` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `respuestas`
 --
 ALTER TABLE `respuestas`
-  MODIFY `idRespuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idRespuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -157,4 +157,34 @@ public class ConnectionManager {
 		return respuesta;
 	}
 	
+	public static void setConsulta(String consulta) {
+		try {
+			Connection conn = DriverManager.getConnection(url, username, password);
+			Statement stmt = (Statement) conn.createStatement();
+			stmt.executeUpdate("insert into consultas (idConsulta, consulta) values (null, '"+consulta+"')");
+			stmt.close();
+			conn.close();			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public static String getConsulta(String id) {
+		String respuesta = "";
+		try {
+			Connection conn = DriverManager.getConnection(url, username, password);
+			Statement stmt = (Statement) conn.createStatement();
+			ResultSet rs = stmt.executeQuery("select consulta from consultas where idConsulta = '"+id+"'");
+			while (rs.next()) {
+				respuesta = rs.getString(1);
+			}
+			stmt.close();
+			conn.close();
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		return respuesta;
+	}
+	
 }

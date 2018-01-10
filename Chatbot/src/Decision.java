@@ -1,6 +1,6 @@
 import java.util.TreeMap;
 
-public class Decision implements Aprendizaje{
+public class Decision implements Aprendizaje, Iterator{
 	
 	public TreeMap decision;
 
@@ -16,5 +16,22 @@ public class Decision implements Aprendizaje{
 	public void aprender() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public Boolean buscarConsulta(String busqueda) {
+		return null;
+	}
+
+	@Override
+	public Boolean hasNext() {
+		// TODO Auto-generated method stub
+		
+		return null;
+	}
+
+	@Override
+	public Object next() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

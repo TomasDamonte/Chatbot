@@ -1,14 +1,20 @@
+import java.util.Collection;
+import java.util.TreeMap;
 
 public class MainParaTestear {
 
 	public static void main(String[] args) {
 		
-		for(Libro libro : ConnectionManager.getLibrosCategoria("ama")) {
-			System.out.println(libro.toString());
-		}
+		TreeMap mapa = new TreeMap();
+		mapa.put("1", "uno");
+		mapa.put("2", "dos");
+		mapa.put("3", "tres");
 		
-		System.out.println(ConnectionManager.getRespuesta("2"));
-
+		Decision dec = new Decision(mapa);
+		
+		while(dec.hasNext())
+			System.out.println(dec.next());
+		
 	}
 
 }

@@ -1,9 +1,18 @@
+import java.util.Collection;
 import java.util.TreeMap;
 
 public class Decision implements Aprendizaje, Iterator{
 	
 	public TreeMap decision;
-
+	private Collection c;
+	private java.util.Iterator itr;
+	
+	public Decision(TreeMap decision) {
+		this.setDecision(decision);
+		this.c = this.getDecision().values();
+		this.itr = this.c.iterator();
+	}
+	
 	public TreeMap getDecision() {
 		return decision;
 	}
@@ -24,14 +33,12 @@ public class Decision implements Aprendizaje, Iterator{
 
 	@Override
 	public Boolean hasNext() {
-		// TODO Auto-generated method stub
-		
-		return null;
+	    return itr.hasNext();
 	}
 
 	@Override
 	public Object next() {
-		// TODO Auto-generated method stub
+		if(this.hasNext()) return itr.next();
 		return null;
 	}
 }

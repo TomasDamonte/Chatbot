@@ -1,20 +1,14 @@
-import java.util.Collection;
-import java.util.TreeMap;
+import java.util.ArrayList;
 
 public class MainParaTestear {
 
 	public static void main(String[] args) {
-		
-		TreeMap mapa = new TreeMap();
-		mapa.put("1", "uno");
-		mapa.put("2", "dos");
-		mapa.put("3", "tres");
-		
-		Decision dec = new Decision(mapa);
-		
-		while(dec.hasNext())
-			System.out.println(dec.next());
-		
+		RespuestasAprendidas ra = new RespuestasAprendidas();
+		ArrayList al = new ArrayList<String>();
+		al.add("hola");
+		al.add("chau");
+		ra.setNuevasRespuestas(al);
+		while(ra.hasNext())
+			System.out.println(ra.next());		
 	}
-
 }

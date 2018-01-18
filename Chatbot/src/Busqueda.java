@@ -20,7 +20,6 @@ public class Busqueda {
 		switch(busqueda) {
 		case "libro": return 1;
 		case "autor" : return 2;
-		case "materia" : return 3;
 		default: return 0;
 		}
 	}

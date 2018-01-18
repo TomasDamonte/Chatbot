@@ -12,6 +12,10 @@ public class Conversacion {
 				+ " y vere si podemos localizarlo en nuestra biblioteca");
 	}
 	
+	public void preguntaNombrePersona() {
+		System.out.println("Cual es su nombre?");
+	}
+	
 	public void mensajeFinal() {
 		System.out.println("Me alegra poder haber sido de utilidad. Vuelva pronto!");
 	}

@@ -1,14 +1,22 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class MainParaTestear {
 
-	public static void main(String[] args) {
-		RespuestasAprendidas ra = new RespuestasAprendidas();
-		ArrayList al = new ArrayList<String>();
-		al.add("hola");
-		al.add("chau");
-		ra.setNuevasRespuestas(al);
-		while(ra.hasNext())
-			System.out.println(ra.next());		
+	public static void main(String[] args) throws Exception {
+		Conversacion conversacion = new Conversacion();
+		InputProvider inputProvider = new InputProvider();
+		conversacion.mensajeInicial();
+		String input = inputProvider.getStringInput();
+		AnalizadorConsulta analizadorConsulta = new AnalizadorConsulta(input);
+		analizadorConsulta.analizarConsulta();
+		String libro = input.split("libro")[1].trim();
+		if(ConnectionManager.getLibrosTitulo(libro).size() == 0)
+			conversacion.libroNoEncontrado();
+		else {
+			LinkedList<Libro> libros = ConnectionManager.getLibrosTitulo(libro);
+			for(Libro item : libros)
+				conversacion.libroEncontrado(item);
+		}		
+		
 	}
 }

@@ -1,8 +1,13 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Busqueda {
 
 	private String busqueda;
+	
+	public Busqueda() {
+		this.setBusqueda("");
+	}
 
 	public Busqueda(String busqueda) {
 		this.setBusqueda(busqueda);
@@ -34,5 +39,9 @@ public class Busqueda {
 		for(int i= (int) Math.ceil(consulta.size()/2);i<consulta.size();i++) {
 			validarBusqueda(consulta.get(i));
 		}
+	}
+	
+	public void getTitulo(List<String> titulo) {
+		
 	}
 }

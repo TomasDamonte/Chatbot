@@ -4,7 +4,8 @@ import java.util.List;
 
 public class AnalizadorConsulta implements Iterator {
 	private List<String> consulta = new ArrayList<String>();
-	private Integer index=0;
+	private Busqueda busqueda = new Busqueda();
+	private static Integer index=0;
 	
 	public AnalizadorConsulta(String consulta) {
 		//Convierto el String[] en un objeto List que fue inicializado como ArrayList<String>
@@ -16,20 +17,27 @@ public class AnalizadorConsulta implements Iterator {
 	}
 
 	public void setConsulta(String consulta) {
+		consulta.replaceAll("[,.]", "");
 		String[] arrConsulta = consulta.split(" ");
 		this.consulta = Arrays.asList(arrConsulta);
 	}
 	
 	public void analizarConsulta () throws ChatBotExceptions {
+		index = 0;
 		List<String> arrConsulta = this.getConsulta();
 		for (String consulta : arrConsulta) {
-			Decision.buscarConsulta(consulta);
+			switch(consulta) {
+				case "titulo" :
+					List<String> titulo = arrConsulta.subList(index, arrConsulta.size());
+					busqueda.getTitulo(titulo);
+				default:
+			}
+			index++;
 		}
 	}
 
 	@Override
 	public Boolean hasNext() {
-
 		return this.index < this.getConsulta().size();
 	}
 

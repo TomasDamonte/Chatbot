@@ -54,19 +54,6 @@ public class Decision implements Aprendizaje, Iterator{
 		// TODO Auto-generated method stub
 		
 	}
-	
-	public static Boolean buscarConsulta(String busqueda) throws ChatBotExceptions{
-		switch(busqueda){
-			case "titulo" :
-			
-			case "autor" :
-			
-			default:
-				
-			
-		}
-		return null;
-	}
 
 	@Override
 	public Boolean hasNext() {

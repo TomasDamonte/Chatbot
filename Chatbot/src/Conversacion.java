@@ -9,11 +9,11 @@ public class Conversacion {
 	public void mensajeInicial() {
 		System.out.println("Buenos dias. Mi nombre es Amy. Soy un asistente automatizado y "
 				+ "quiero ser de utilidad para usted. Por favor, digame que esta buscando,"
-				+ " y vere si podemos localizarlo en nuestra biblioteca");
+				+ " y vere si podemos localizarlo en nuestra biblioteca.");
 	}
 	
 	public void preguntaNombrePersona() {
-		System.out.println("Cual es su nombre?");
+		System.out.println("Para conocerlo mejor, me podria decir su nombre?");
 	}
 	
 	public void mensajeFinal() {

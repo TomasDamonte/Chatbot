@@ -1,16 +1,12 @@
 import java.util.Collection;
 import java.util.TreeMap;
 
-public class Decision implements Aprendizaje, Iterator{
+public class Decision {
 	
 	public TreeMap decision;
 	private static Node root;
-	private Collection c;
-	private java.util.Iterator itr;
 	
 	public Decision(String decision) {
-		this.c = this.getDecision().values();
-		this.itr = this.c.iterator();
 		root = new Node(decision);	
 	}
 	
@@ -49,20 +45,4 @@ public class Decision implements Aprendizaje, Iterator{
         }
     }
 
-	@Override
-	public void aprender() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Boolean hasNext() {
-	    return itr.hasNext();
-	}
-
-	@Override
-	public Object next() {
-		if(this.hasNext()) return itr.next();
-		return null;
-	}
 }

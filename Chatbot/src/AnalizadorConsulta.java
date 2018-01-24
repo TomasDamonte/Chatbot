@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class AnalizadorConsulta implements Iterator {
+public class AnalizadorConsulta implements Iterator<Object> {
 	private List<String> consulta = new ArrayList<String>();
 	private Busqueda busqueda = new Busqueda();
 	private static Integer index=0;
@@ -30,6 +30,10 @@ public class AnalizadorConsulta implements Iterator {
 				case "titulo" :
 					List<String> titulo = arrConsulta.subList(index, arrConsulta.size());
 					busqueda.getTitulo(titulo);
+				case "autor" :
+				case "no" :
+				case "si" :
+				case "gracias" :
 				default:
 			}
 			index++;
@@ -38,14 +42,14 @@ public class AnalizadorConsulta implements Iterator {
 
 	@Override
 	public Boolean hasNext() {
-		return this.index < this.getConsulta().size();
+		return index < this.getConsulta().size();
 	}
 
 	@Override
 	public Object next() {
 		if(this.hasNext()) {
-			this.index++;
-			return this.getConsulta().get(this.index-1);
+			index++;
+			return this.getConsulta().get(index-1);
 		}
 		return null;
 	}

@@ -1,9 +1,8 @@
-import java.util.Collection;
 import java.util.TreeMap;
 
 public class Decision {
 	
-	public TreeMap decision;
+	public TreeMap<Node,String> decision;
 	private static Node root;
 	
 	public Decision(String decision) {
@@ -25,11 +24,11 @@ public class Decision {
 	
 	}
 	
-	public TreeMap getDecision() {
+	public TreeMap<Node,String> getDecision() {
 		return decision;
 	}
 
-	public void setDecision(TreeMap decision) {
+	public void setDecision(TreeMap<Node,String> decision) {
 		this.decision = decision;
 	}
 	

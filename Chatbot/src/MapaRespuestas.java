@@ -1,7 +1,7 @@
 import java.util.Collection;
 import java.util.HashMap;
 
-public class MapaRespuestas implements Iterator {
+public class MapaRespuestas implements Iterator<Object> {
 	
 	private HashMap<Integer, String> mapaRespuestas = new HashMap<Integer, String>();
 	private Collection c;

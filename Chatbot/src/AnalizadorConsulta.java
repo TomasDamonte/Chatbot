@@ -31,6 +31,8 @@ public class AnalizadorConsulta implements Iterator<Object> {
 					List<String> titulo = arrConsulta.subList(index, arrConsulta.size());
 					busqueda.getTitulo(titulo);
 				case "autor" :
+					List<String> autor = arrConsulta.subList(index, arrConsulta.size());
+					busqueda.getAutor(autor);
 				case "no" :
 				case "si" :
 				case "gracias" :

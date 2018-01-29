@@ -44,7 +44,8 @@ public class Busqueda {
 		
 	}
 	
-public void getAutor(List<String> titulo) {
+	public void getAutor(List<String> autor) {
+
 		
 	}
 }

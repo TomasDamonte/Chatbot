@@ -28,6 +28,14 @@ public final class Conversacion {
 		System.out.println("¿Es esto lo que estaba buscando? ");
 	}
 	
+	public static void consultaNoEncontrada() {
+		System.out.println("Lamentablemente no contamos con lo que esta buscando en la biblioteca.");
+	}
+	
+	public static void preguntaRecomendacion() {
+		System.out.println("Le puedo recomendar algo en base a su busqueda?");
+	}
+	
 	public static void preguntaNuevaConsulta() {
 		System.out.println("¿Lo puedo ayudar en algo mas?");
 	}

@@ -31,7 +31,7 @@ public class Busqueda {
 	public void busquedaBinariaPrimerMitad(List<String> consulta) {
 		for(int i=0;i< (int) Math.ceil(consulta.size()/2);i++) {
 			validarBusqueda(consulta.get(i));
-		}
+		}  
 	}
 	
 	public void busquedaBinariaSegundaMitad(List<String> consulta) {

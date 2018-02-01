@@ -22,25 +22,16 @@ public class AnalizadorConsulta implements Iterator<Object> {
 		this.consulta = Arrays.asList(arrConsulta);
 	}
 	
-	public void analizarConsulta () throws ChatBotExceptions {
+	public void analizarConsulta () {
 		index = 0;
 		List<String> arrConsulta = this.getConsulta();
 		for (String consulta : arrConsulta) {
 			switch(consulta) {
 				case "titulo" :
-					List<String> titulo = arrConsulta.subList(index, arrConsulta.size());
-					busqueda.getTitulo(titulo);
+					Conversacion.preguntaEspecificarConsulta("titulo");
 					break;
 				case "autor" :
-					List<String> autor = arrConsulta.subList(index, arrConsulta.size());
-					busqueda.getAutor(autor);
-					break;
-
-				case "no" :
-					break;
-				case "si" :
-					break;
-				case "gracias" :
+					Conversacion.preguntaEspecificarConsulta("autor");
 					break;
 				default:
 					break;

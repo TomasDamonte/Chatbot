@@ -6,7 +6,7 @@ public class AnalizadorConsulta implements Iterator<Object> {
 	private List<String> consulta = new ArrayList<String>();
 	private Busqueda busqueda = new Busqueda();
 	private static Integer index=0;
-	
+
 	public AnalizadorConsulta(String consulta) {
 		//Convierto el String[] en un objeto List que fue inicializado como ArrayList<String>
 		this.setConsulta(consulta);
@@ -22,22 +22,27 @@ public class AnalizadorConsulta implements Iterator<Object> {
 		this.consulta = Arrays.asList(arrConsulta);
 	}
 	
-	public void analizarConsulta () {
+	public String getBusqueda() {
+		return this.busqueda.getBusqueda();
+	}
+
+	public boolean analizarConsulta () {
 		index = 0;
 		List<String> arrConsulta = this.getConsulta();
 		for (String consulta : arrConsulta) {
 			switch(consulta) {
-				case "titulo" :
-					Conversacion.preguntaEspecificarConsulta("titulo");
-					break;
-				case "autor" :
-					Conversacion.preguntaEspecificarConsulta("autor");
-					break;
-				default:
-					break;
+			case "libro" :
+				Conversacion.preguntaEspecificarConsulta("libro");
+				busqueda.setBusqueda("titulo");
+				return true;					
+			case "autor" :
+				Conversacion.preguntaEspecificarConsulta("autor");
+				busqueda.setBusqueda("autor");
+				return true;				
 			}
 			index++;
 		}
+		return false;
 	}
 
 	@Override

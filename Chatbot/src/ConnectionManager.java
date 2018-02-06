@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import com.mysql.jdbc.Statement;
@@ -177,6 +178,24 @@ public class ConnectionManager {
 			ResultSet rs = stmt.executeQuery("select consulta from consultas where idConsulta = '"+id+"'");
 			while (rs.next()) {
 				respuesta = rs.getString(1);
+			}
+			stmt.close();
+			conn.close();
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		return respuesta;
+	}
+	
+	public static ArrayList<String> getCategorias() { 
+		ArrayList<String> respuesta = new ArrayList<String>();
+		try {
+			Connection conn = DriverManager.getConnection(url, username, password);
+			Statement stmt = (Statement) conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT DISTINCT categoria FROM biblioteca");
+			while (rs.next()) {				
+				respuesta.add(rs.getString(1));				
 			}
 			stmt.close();
 			conn.close();

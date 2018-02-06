@@ -32,13 +32,14 @@ public class AnalizadorConsulta implements Iterator<Object> {
 		for (String consulta : arrConsulta) {
 			switch(consulta) {
 			case "libro" :
-				Conversacion.preguntaEspecificarConsulta("libro");
 				busqueda.setBusqueda("titulo");
 				return true;					
 			case "autor" :
-				Conversacion.preguntaEspecificarConsulta("autor");
 				busqueda.setBusqueda("autor");
-				return true;				
+				return true;
+			case "categoria" :
+				busqueda.setBusqueda("categoria");
+				return true;
 			}
 			index++;
 		}

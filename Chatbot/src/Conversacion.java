@@ -13,7 +13,7 @@ public final class Conversacion {
 	}
 	
 	public static void preguntaTipoConsulta() {
-		System.out.println("¿Esta buscando un libro en especifico o un autor?");
+		System.out.println("¿Esta buscando un libro en especifico, autor o categoria?");
 	}
 	
 	public static void preguntaEspecificarConsulta(String consulta) {
@@ -21,7 +21,15 @@ public final class Conversacion {
 	}
 	
 	public static void mensajeFinal() {
-		System.out.println("¡Me alegra poder haber sido de utilidad. Vuelva pronto!");
+		System.out.println("¡Me alegra haber sido de utilidad. Vuelva pronto!");
+	}
+	
+	public static void categoriasDisponibles() {
+		System.out.println("Las categorias disponibles son:");
+	}
+	
+	public static void preguntaCategoria() {
+		System.out.println("¿Sobre cual desea realizar la busqueda?");
 	}
 	
 	public static void preguntaLibroEncontrado() {

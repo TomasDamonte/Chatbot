@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class MainParaTestear {
@@ -17,22 +18,28 @@ public class MainParaTestear {
 				Conversacion.preguntaTipoConsulta();
 				analizadorConsulta = new AnalizadorConsulta(inputProvider.getStringInput());
 			}
+			LinkedList<Libro> libros = new LinkedList<Libro>();
 			if(analizadorConsulta.getBusqueda().equals("titulo")) {
-				LinkedList<Libro> libros = ConnectionManager.getLibrosTitulo(inputProvider.getStringInput());
-				if(!libros.isEmpty()) {				
-					for(Libro libro : libros) 
-						Conversacion.libroEncontrado(libro);				
-				}
-				else Conversacion.libroNoEncontrado();
+				Conversacion.preguntaEspecificarConsulta("libro");
+				libros = ConnectionManager.getLibrosTitulo(inputProvider.getStringInput());
+			}
+			else if(analizadorConsulta.getBusqueda().equals("autor")){
+				Conversacion.preguntaEspecificarConsulta("autor");
+				libros = ConnectionManager.getLibrosAutor(inputProvider.getStringInput());
 			}
 			else {
-				LinkedList<Libro> libros = ConnectionManager.getLibrosAutor(inputProvider.getStringInput());
-				if(!libros.isEmpty()) {				
-					for(Libro libro : libros) 
-						Conversacion.libroEncontrado(libro);				
-				}
-				else Conversacion.consultaNoEncontrada();
+				ArrayList<String> categorias = ConnectionManager.getCategorias();
+				Conversacion.categoriasDisponibles();		
+				for(String categoria : categorias) 
+					System.out.println(categoria);
+				Conversacion.preguntaCategoria();
+				libros = ConnectionManager.getLibrosCategoria(inputProvider.getStringInput());
 			}
+			if(!libros.isEmpty()) {				
+				for(Libro libro : libros) 
+					Conversacion.libroEncontrado(libro);				
+			}
+			else Conversacion.consultaNoEncontrada();
 			Conversacion.preguntaNuevaConsulta();
 			if(inputProvider.getStringInput().equalsIgnoreCase("si")) nuevaConsulta = true;
 			else nuevaConsulta = false;

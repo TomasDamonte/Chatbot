@@ -31,7 +31,7 @@ public class ConnectionManager {
 			conn.close();
 			rs.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Conversacion.errorConexionBD();
 		}	
 		return libros;
 	}
@@ -54,7 +54,7 @@ public class ConnectionManager {
 			conn.close();
 			rs.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Conversacion.errorConexionBD();
 		}	
 		return libros;
 	}
@@ -77,7 +77,7 @@ public class ConnectionManager {
 			conn.close();
 			rs.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Conversacion.errorConexionBD();
 		}	
 		return libros;
 	}
@@ -100,7 +100,7 @@ public class ConnectionManager {
 			conn.close();
 			rs.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Conversacion.errorConexionBD();
 		}	
 		return libros;
 	}
@@ -123,7 +123,7 @@ public class ConnectionManager {
 			conn.close();
 			rs.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Conversacion.errorConexionBD();
 		}	
 		return libros;
 	}
@@ -136,7 +136,7 @@ public class ConnectionManager {
 			stmt.close();
 			conn.close();			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Conversacion.errorConexionBD();
 		}		
 	}
 	
@@ -153,7 +153,7 @@ public class ConnectionManager {
 			conn.close();
 			rs.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Conversacion.errorConexionBD();
 		}	
 		return respuesta;
 	}
@@ -166,7 +166,7 @@ public class ConnectionManager {
 			stmt.close();
 			conn.close();			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Conversacion.errorConexionBD();
 		}	
 	}
 	
@@ -183,7 +183,7 @@ public class ConnectionManager {
 			conn.close();
 			rs.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Conversacion.errorConexionBD();
 		}	
 		return respuesta;
 	}
@@ -201,7 +201,7 @@ public class ConnectionManager {
 			conn.close();
 			rs.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Conversacion.errorConexionBD();
 		}	
 		return respuesta;
 	}

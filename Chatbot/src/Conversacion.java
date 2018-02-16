@@ -12,6 +12,10 @@ public final class Conversacion {
 		System.out.println("¿Para conocerlo mejor, me podria decir su nombre?");
 	}
 	
+	public static void errorConexionBD() {
+		System.out.println("Error al intentar conectarse con la base de datos.");
+	}
+	
 	public static void preguntaTipoConsulta() {
 		System.out.println("¿Esta buscando un libro en especifico, autor o categoria?");
 	}
